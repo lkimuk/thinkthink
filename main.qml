@@ -1,5 +1,5 @@
-import QtQuick 2.15
-import QtQuick.Window 2.15
+import QtQuick
+import QtQuick.Window
 import QtQuick.Layouts
 import QtQuick.Controls
 
@@ -8,11 +8,12 @@ Window {
     width: 1920 / 2
     height: 1080 / 2
     visible: true
-    title: qsTr("Hello World")
+    title: qsTr("Thinkthink")
     color: "#ee007400"
     flags: Qt.FramelessWindowHint
 
 
+    // Change mouse styles when the user moves it to the window edge.
     MouseArea {
         anchors.fill: parent
         hoverEnabled: true
@@ -27,6 +28,7 @@ Window {
         acceptedButtons: Qt.NoButton
     }
 
+    // Response drag action and resize the window.
     DragHandler {
         id: resizeHandler
         grabPermissions: TapHandler.TakeOverForbidden
@@ -47,63 +49,27 @@ Window {
         id: titleBar
     }
 
-    RowLayout {
+    CategoryList {
+        id: categoryList
+        width: 200
         anchors {
             top: titleBar.bottom
             left: parent.left
-            right: parent.right
             bottom: parent.bottom
             topMargin: 10
         }
-
-        // Left
-        VideoList {
-            Layout.minimumWidth: 150
-            Layout.preferredWidth: parent.width / 3
-            Layout.maximumWidth: 200
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            Layout.topMargin: 20
-            Layout.leftMargin: 5
-        }
-
-        // Right
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            color: "pink"
-
-            ColumnLayout {
-                anchors.fill: parent
-
-                Rectangle {
-                    Layout.fillWidth: true
-                    height: 200
-                    Layout.alignment: Qt.AlignLeft
-                    color: "yellow"
-
-                    Rectangle {
-                        id: overlay
-                        width: 200
-                        height: parent.height
-                        anchors.right: parent.right
-
-                        color: "#003499"
-                        opacity: 0.2
-
-                        visible: true
-                    }
-                }
-
-                Rectangle {
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    color: "red"
+    }
 
 
-                    //////////////////////////////
-                }
-            }
+    ///////////////////////////////////////////
+    VideoPage {
+        anchors {
+            top: titleBar.bottom
+            left: categoryList.right
+            right: parent.right
+            bottom: parent.bottom
+            topMargin: 10
+            rightMargin: 2
         }
     }
 

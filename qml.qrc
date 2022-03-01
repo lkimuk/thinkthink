@@ -2,6 +2,12 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>TitleBar.qml</file>
-        <file>VideoList.qml</file>
+        <file>CategoryList.qml</file>
+        <file>CategoryFeeds.qml</file>
+        <file>ScrollArea.qml</file>
+        <file>images/scrollbar.png</file>
+        <file>VideoItems.qml</file>
+        <file>images/1209425.png</file>
+        <file>VideoPage.qml</file>
     </qresource>
 </RCC>

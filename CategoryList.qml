@@ -1,38 +1,25 @@
-import QtQuick 2.0
+import QtQuick
 import QtQuick.Controls
-import QtQuick.Layouts
+
 
 FocusScope {
     id: root
 
-    ListModel {
-        id: listViewModel
-
-        ListElement {
-            name: "First"
-        }
-        ListElement {
-            name: "Second"
-        }
-        ListElement {
-            name: "Third"
-        }
-    }
+    CategoryFeeds { id: categoryFeeds }
 
     ListView {
-        id: listView
-        width: 200
-        height: 400
+        id: categories
+        width: parent.width
+        height: parent.height
         keyNavigationWraps: true
         clip: true
         focus: true
-        ScrollBar.vertical: ScrollBar { }
 
-        model: listViewModel
+        model: categoryFeeds
 
         delegate: ItemDelegate {
             id: control
-            implicitWidth: parent.width
+            implicitWidth: categories.width
             implicitHeight:40
             text: name
 
@@ -58,9 +45,21 @@ FocusScope {
             highlighted: ListView.isCurrentItem
 
             onClicked: {
-                listView.forceActiveFocus()
-                listView.currentIndex = model.index
+                categories.forceActiveFocus()
+                categories.currentIndex = model.index
             }
         }
+
     }
+
+    ScrollArea {
+        id: listScrollBar
+
+        orientation: Qt.Vertical
+        height: categories.height;
+        width: 8
+        scrollArea: categories;
+        anchors.right: categories.right
+    }
+
 }
