@@ -10,12 +10,10 @@ Item {
     ListModel {
         id: videoListModel
 
-        ListElement { name: "UP: text1"; title: "故事的结局总是充满了遗憾"}
-        ListElement { name: "UP: text2"; title: "电车难题与经济价值"}
-        ListElement { name: "UP: text3"; title: "Title3" }
-        ListElement { name: "UP: text4"; title: "打小就有出息" }
-        ListElement { name: "UP: text5"; title: "Title5" }
-        ListElement { name: "UP: text5"; title: "Title5" }
+        ListElement { author: "UP: 大笨蛋"; title: "故事的结局总是充"; date: "2-27" }
+        ListElement { author: "UP: 小兔子"; title: "电车难题与经济价值"; date: "2-28" }
+        ListElement { author: "UP: 哈哈哈哈哈"; title: "Title3";  date: "3-1" }
+        ListElement { author: "UP: 奇奇怪怪"; title: "打小就有出息"; date: "3-2" }
     }
 
 
@@ -26,7 +24,7 @@ Item {
         color: "red"
 
         Component {
-            id: contactDelegate
+            id: videoItemDelegate
 
             Item {
                 width: grid.cellWidth - 5
@@ -34,16 +32,21 @@ Item {
 
                 Column {
                     anchors.fill: parent
+                    spacing: 3
                     Image {
+                        id: videoImage
                         width: parent.width
-                        height: parent.height - 60
+                        height: Math.ceil(parent.height / 5) * 3
+                        asynchronous: true
+                        cache: false
                         source: "images/1209425.png"
                     }
 
                     Text {
+                        id: videoTitle
                         text: title
                         width: parent.width
-                        height: 40
+                        height: Math.ceil((parent.height - videoImage.height) / 2)
                         font.pointSize: 11
                         wrapMode: Text.WordWrap
                         fontSizeMode: Text.Fit
@@ -54,8 +57,7 @@ Item {
 
                     Text {
                         id: authorName
-                        height: 20
-                        text: name
+                        text: author + " · " + date
                     }
                 }
 
@@ -70,10 +72,10 @@ Item {
             id: grid
             anchors.fill: parent
             cellWidth: parent.width / 5
-            cellHeight: cellWidth
+            cellHeight: Math.ceil(cellWidth / 4) * 3
 
             model: videoListModel
-            delegate: contactDelegate
+            delegate: videoItemDelegate
             highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
             focus: true
         }

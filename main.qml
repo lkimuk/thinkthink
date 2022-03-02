@@ -5,12 +5,19 @@ import QtQuick.Controls
 
 Window {
     id: root
-    width: 1920 / 2
-    height: 1080 / 2
+    width: 1080
+    height: 800
     visible: true
     title: qsTr("Thinkthink")
-    color: "#ee007400"
+    color: "#ee007400" // if alpha value is ff, fullscreen has a bug.
     flags: Qt.FramelessWindowHint
+
+    Image {
+        id: background
+        fillMode: Image.TileHorizontally
+        smooth: true
+        source: "images/1197280.jpg"
+    }
 
 
     // Change mouse styles when the user moves it to the window edge.
@@ -69,7 +76,8 @@ Window {
             right: parent.right
             bottom: parent.bottom
             topMargin: 10
-            rightMargin: 2
+            leftMargin: 40
+            rightMargin: 40
         }
     }
 

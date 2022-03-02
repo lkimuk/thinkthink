@@ -11,11 +11,11 @@ ScrollView {
         anchors.fill: parent
         color: "pink"
 
-        Rectangle {
+        Image {
             id: hotVideoArea
             width: parent.width
-            height: 200
-            color: "yellow"
+            height: Math.ceil(width / 4)
+            source: "images/220302.png"
 
             Rectangle {
                 id: overlay
@@ -23,12 +23,31 @@ ScrollView {
                 height: parent.height
                 anchors.right: parent.right
 
-                color: "#003499"
-                opacity: 0.2
+                color: "#50616d"
+                opacity: 0.7
 
                 visible: true
             }
         }
+
+//        Rectangle {
+//            id: hotVideoArea
+//            width: parent.width
+//            height: 200
+//            color: "yellow"
+
+//            Rectangle {
+//                id: overlay
+//                width: 200
+//                height: parent.height
+//                anchors.right: parent.right
+
+//                color: "#003499"
+//                opacity: 0.2
+
+//                visible: true
+//            }
+//        }
 
         Column {
             id: videotest

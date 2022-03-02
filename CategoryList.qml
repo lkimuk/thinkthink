@@ -26,7 +26,7 @@ FocusScope {
             contentItem: Text {
                 text: parent.text
                 font: parent.font
-                color: parent.enabled ? (control.down ? "#17a81a" : "#21be2b") : "#bdbebf"
+                color: parent.enabled ? (control.down ? "#f2fdff" : "#f2fdff") : "#f2fdff"
                 elide: Text.ElideRight
                 horizontalAlignment: Text.AlignLeft
                 verticalAlignment: Text.AlignVCenter
@@ -38,8 +38,8 @@ FocusScope {
                 implicitWidth: parent.width
                 implicitHeight: parent.height
                 opacity: enabled ? 1 : 0.3
-                color: control.highlighted ? (control.hovered ? "#ff0000" : "#cc0000")
-                                           : (control.hovered ? "#0000ff" : "#0000cc")
+                color: control.highlighted ? (control.hovered ? "#50616d" : "#3d3b4f")
+                                           : (control.hovered ? "#50616d" : "#758a99")
             }
 
             highlighted: ListView.isCurrentItem

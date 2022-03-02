@@ -9,5 +9,9 @@
         <file>VideoItems.qml</file>
         <file>images/1209425.png</file>
         <file>VideoPage.qml</file>
+        <file>images/1197280.jpg</file>
+        <file>images/1213108.jpg</file>
+        <file>images/220302.png</file>
+        <file>images/bg.jpg</file>
     </qresource>
 </RCC>
