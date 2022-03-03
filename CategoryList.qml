@@ -37,7 +37,7 @@ FocusScope {
                 id: listViewBackground
                 implicitWidth: parent.width
                 implicitHeight: parent.height
-                opacity: enabled ? 1 : 0.3
+                opacity: 0.6
                 color: control.highlighted ? (control.hovered ? "#50616d" : "#3d3b4f")
                                            : (control.hovered ? "#50616d" : "#758a99")
             }

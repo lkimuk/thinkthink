@@ -5,7 +5,7 @@ import QtQuick.Controls
 
 Window {
     id: root
-    width: 1080
+    width: 1280
     height: 800
     visible: true
     title: qsTr("Thinkthink")
@@ -69,7 +69,7 @@ Window {
 
 
     ///////////////////////////////////////////
-    VideoPage {
+    VideoLayout {
         anchors {
             top: titleBar.bottom
             left: categoryList.right
