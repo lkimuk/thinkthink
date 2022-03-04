@@ -5,7 +5,8 @@ import QtQuick.Controls
 FocusScope {
     id: root
 
-    CategoryFeeds { id: categoryFeeds }
+    //CategoryFeeds { id: categoryFeeds }
+
 
     ListView {
         id: categories
@@ -15,7 +16,7 @@ FocusScope {
         clip: true
         focus: true
 
-        model: categoryFeeds
+        model: mymodel
 
         delegate: ItemDelegate {
             id: control

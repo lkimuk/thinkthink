@@ -12,11 +12,12 @@ Window {
     color: "#ee007400" // if alpha value is ff, fullscreen has a bug.
     flags: Qt.FramelessWindowHint
 
+
     Image {
         id: background
         fillMode: Image.TileHorizontally
         smooth: true
-        source: "images/1197280.jpg"
+        source: "../../images/1197280.jpg"
     }
 
 

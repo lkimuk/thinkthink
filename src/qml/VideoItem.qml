@@ -28,6 +28,7 @@ Item {
             Text {
                 text: qsTr("热门推荐")
                 color: "#ffffff"
+                font.pointSize: 14
             }
 
             Item {
@@ -98,7 +99,7 @@ Item {
                         height: parent.height - 60
                         asynchronous: true
                         cache: false
-                        source: "images/1209425.png"
+                        source: "../../images/1209425.png"
                     }
 
                     Text {

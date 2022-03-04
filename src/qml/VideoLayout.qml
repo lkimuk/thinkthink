@@ -37,7 +37,7 @@ Item {
                     id: hotVideoImage
                     width: parent.width
                     height: Math.ceil(parent.width / 4)
-                    source: "images/220302.png"
+                    source: "../../images/220302.png"
                 }
 
                 ////////////////////////////////////
