@@ -6,8 +6,9 @@ CONFIG += resources_big
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        src/controller/VideoCategoryController.cpp \
         src/main.cpp \
-        src/model/VideoCategoriesModel.cpp
+        src/model/VideoCategoryModel.cpp
 
 RESOURCES += qml.qrc
 
@@ -25,7 +26,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES +=
 
 HEADERS += \
-    src/model/VideoCategoriesModel.h
+    src/controller/VideoCategoryController.h \
+    src/model/VideoCategoryModel.h
 
-INCLUDEPATH += $$PWD/src/model
+INCLUDEPATH += $$PWD/src/model \
+    $$PWD/src/controller
 

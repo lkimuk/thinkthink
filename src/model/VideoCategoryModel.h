@@ -1,19 +1,19 @@
-#ifndef VIDEOCATEGORIESMODEL_H
-#define VIDEOCATEGORIESMODEL_H
+#ifndef VIDEOCATEGORYMODEL_H
+#define VIDEOCATEGORYMODEL_H
 
 #include <QAbstractListModel>
 #include <QStringList>
 
 
 
-class VideoCategoriesModel : public QAbstractListModel
+class VideoCategoryModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
     enum VideoCategoryRoles {
         NameRole = Qt::UserRole + 1
     };
-    VideoCategoriesModel(QObject *parent = nullptr);
+    VideoCategoryModel(QObject *parent = nullptr);
 
     void addCategory(const QString& categoryName);
 
@@ -28,4 +28,4 @@ private:
     QList<QString> m_categories;
 };
 
-#endif // VIDEOCATEGORIESMODEL_H
+#endif // VIDEOCATEGORYMODEL_H

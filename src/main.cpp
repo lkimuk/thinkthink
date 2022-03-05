@@ -1,8 +1,9 @@
-#include "VideoCategoriesModel.h"
+#include "VideoCategoryController.h"
 
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <VideoCategoryModel.h>
 
 
 int main(int argc, char *argv[])
@@ -14,12 +15,19 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     QQmlApplicationEngine engine;
 
-    VideoCategoriesModel *model = new VideoCategoriesModel();
-    model->addCategory("Hahsh");
-    model->addCategory("sjalfkjas");
+//    VideoCategoryModel *model = new VideoCategoryModel();
+//    model->addCategory("Hahsh");
+//    model->addCategory("sjalfkjas");
 
+//    QQmlContext *context = engine.rootContext();
+//    context->setContextProperty("mymodel", model);
+
+    qmlRegisterType<VideoCategoryModel>("com.video.category.model", 1, 0,
+                                                   "VideoCategoryModel");
+
+    VideoCategoryController* videoCateogryController = new VideoCategoryController(&engine);
     QQmlContext *context = engine.rootContext();
-    context->setContextProperty("mymodel", model);
+    context->setContextProperty("videoCategoryController", videoCateogryController);
 
 
     const QUrl url(QStringLiteral("qrc:/src/qml/main.qml"));

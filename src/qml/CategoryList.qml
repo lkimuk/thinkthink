@@ -16,7 +16,7 @@ FocusScope {
         clip: true
         focus: true
 
-        model: mymodel
+        model: videoCategoryController.model()
 
         delegate: ItemDelegate {
             id: control
