@@ -3,6 +3,7 @@
 
 #include <QAbstractListModel>
 #include <QStringList>
+#include <QTcpSocket>
 
 
 
@@ -24,8 +25,14 @@ public:
 protected:
     QHash<int, QByteArray> roleNames() const;
 
+private slots:
+    void requestCategories();
+    void responseData();
+    void closeSocket();
+
 private:
     QList<QString> m_categories;
+    QTcpSocket* m_socket;
 };
 
 #endif // VIDEOCATEGORYMODEL_H

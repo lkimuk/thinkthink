@@ -98,8 +98,10 @@ Item {
                         width: parent.width - 5
                         height: parent.height - 60
                         asynchronous: true
-                        cache: false
-                        source: "../../images/1209425.png"
+                        //fillMode: Image.PreserveAspectFit
+                        cache: true
+                        //source: "../../images/1209425.png"
+                        source: "https://www.tujuyun.com/upload/photo/imgSmall/20211204/b302bb40-6113-4fd7-9a78-0a4fb8771450_5208228_wantuju.jpg"
                     }
 
                     Text {

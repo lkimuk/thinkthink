@@ -1,4 +1,4 @@
-QT += qml quick
+QT += core qml quick network
 CONFIG += resources_big
 
 # You can make your code fail to compile if it uses deprecated APIs.
@@ -8,6 +8,7 @@ CONFIG += resources_big
 SOURCES += \
         src/controller/VideoCategoryController.cpp \
         src/main.cpp \
+        src/model/RequestMessage.cpp \
         src/model/VideoCategoryModel.cpp
 
 RESOURCES += qml.qrc
@@ -27,8 +28,11 @@ DISTFILES +=
 
 HEADERS += \
     src/controller/VideoCategoryController.h \
-    src/model/VideoCategoryModel.h
+    src/model/RequestMessage.h \
+    src/model/VideoCategoryModel.h \
+    src/utils/Utils.hpp
 
 INCLUDEPATH += $$PWD/src/model \
-    $$PWD/src/controller
+    $$PWD/src/controller \
+    $$PWD/src/utils
 

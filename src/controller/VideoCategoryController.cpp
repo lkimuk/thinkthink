@@ -7,8 +7,11 @@ VideoCategoryController::VideoCategoryController(QObject *parent)
     : QObject{parent}
 {
     videoCategoryModel = new VideoCategoryModel();
-    videoCategoryModel->addCategory("Hahsh");
-    videoCategoryModel->addCategory("sjalfkjas");
+}
+
+void VideoCategoryController::addCategory(const QString &categoryName)
+{
+    videoCategoryModel->addCategory(categoryName);
 }
 
 VideoCategoryModel* VideoCategoryController::model() const

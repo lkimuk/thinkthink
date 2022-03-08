@@ -12,6 +12,7 @@ class VideoCategoryController : public QObject
 
 public:
     explicit VideoCategoryController(QObject *parent = nullptr);
+    void addCategory(const QString& categoryName);
     Q_INVOKABLE VideoCategoryModel* model() const;
 
 //signals:
