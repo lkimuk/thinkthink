@@ -6,7 +6,7 @@ RequestMessage::RequestMessage()
     : xml(&buffer)
 {
     xml.writeStartDocument();
-    xml.writeStartElement("ThinkThinkRequest");
+    xml.writeStartElement("ThinkThink");
 }
 
 void RequestMessage::setMessage(RequestBody type, const char* value)
@@ -14,10 +14,13 @@ void RequestMessage::setMessage(RequestBody type, const char* value)
     xml.writeTextElement(QtEnumToString(type), value);
 }
 
-QByteArray RequestMessage::data()
+void RequestMessage::commit()
 {
     xml.writeEndElement();
     xml.writeEndDocument();
+}
 
+QByteArray RequestMessage::data()
+{
     return buffer;
 }

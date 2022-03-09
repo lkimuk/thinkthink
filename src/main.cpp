@@ -26,16 +26,6 @@ int main(int argc, char *argv[])
                                                    "VideoCategoryModel");
 
     VideoCategoryController* videoCateogryController = new VideoCategoryController(&engine);
-    videoCateogryController->addCategory("First");
-    videoCateogryController->addCategory("Second");
-    videoCateogryController->addCategory("Third");
-    videoCateogryController->addCategory("First");
-    videoCateogryController->addCategory("First");
-    videoCateogryController->addCategory("First");
-    videoCateogryController->addCategory("First");
-    videoCateogryController->addCategory("First");
-    videoCateogryController->addCategory("First");
-    videoCateogryController->addCategory("First");
     QQmlContext *context = engine.rootContext();
     context->setContextProperty("videoCategoryController", videoCateogryController);
 

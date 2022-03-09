@@ -19,6 +19,8 @@ public:
 
     void setMessage(RequestBody type, const char* value);
 
+    void commit();
+
     QByteArray data();
 
 private:

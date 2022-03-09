@@ -21,9 +21,18 @@
     <ClCompile Include="ThinkThinkServer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="MessageHandler.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ThinkThinkServer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageHandler.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

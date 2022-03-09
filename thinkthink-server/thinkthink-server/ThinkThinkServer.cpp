@@ -3,6 +3,12 @@
 #include <memory>
 
 
+
+ThinkThinkServer::ThinkThinkServer(uint16_t port)
+	: m_acceptor(m_io, endpoint_type(ip::tcp::v4(), port))
+{
+}
+
 void ThinkThinkServer::Accept()
 {
 	socket_ptr socket(new socket_type(m_io));
@@ -26,7 +32,7 @@ void ThinkThinkServer::Run()
 VideoSession::VideoSession(socket_ptr socket)
 	: m_socket(socket)
 {
-
+	m_MessageHandler.SetHandler("GetVideoCategories", &VideoSession::OnGetVideoCategories, this);
 }
 
 void VideoSession::Start()
@@ -58,9 +64,24 @@ void VideoSession::AsyncWriteMessage(const std::string& res)
 	});
 }
 
+// 分发消息
 void VideoSession::DispatchMessage(const std::string& data)
 {
-	std::cout << data << std::endl;
+	RequestMessage request(data);
+	m_MessageHandler.Dispatch(request);
+}
 
-	AsyncWriteMessage("response from server");
+// 获取目录消息
+void VideoSession::OnGetVideoCategories(const RequestMessage& request)
+{
+	ResponseMessage response;
+	sql_type mysql;
+	mysql.connect("127.0.0.1", "root", "", "thinkthink");
+	mysql.execute("SET NAMES GB2312");
+	auto categories = mysql.query<VideoCategory>();
+	for (auto& category : categories) {
+		response.SetMessage("Category", category.category_name.c_str());
+	}
+
+	AsyncWriteMessage(response.GetData());
 }

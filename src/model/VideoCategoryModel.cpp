@@ -1,6 +1,9 @@
 #include "RequestMessage.h"
 #include "VideoCategoryModel.h"
 #include <QXmlStreamWriter>
+#include <QXmlStreamReader>
+
+
 
 
 VideoCategoryModel::VideoCategoryModel(QObject *parent)
@@ -50,13 +53,39 @@ void VideoCategoryModel::requestCategories()
     // request categories from server
     RequestMessage request;
     request.setMessage(RequestMessage::RequestType, "GetVideoCategories");
+    request.commit();
+    qDebug() << request.data();
 
     m_socket->write(request.data());
 }
 
 void VideoCategoryModel::responseData()
 {
-    qDebug() << m_socket->readAll();
+    QString data = QString::fromLocal8Bit(m_socket->readAll()); // 转换编码，否则无法解析
+    QXmlStreamReader xml(data);
+    if(xml.readNextStartElement())
+    {
+        if(xml.name().toString() == "ThinkThink") // 确保是ThinkThink消息
+        {
+            while(xml.readNextStartElement())
+            {
+                if(xml.name().toString() == "Category")
+                {
+                    QString value = xml.readElementText();
+                    // qDebug() << value;
+                    addCategory(value);
+                }
+                else
+                {
+                    xml.skipCurrentElement();
+                }
+            }
+        }
+        else
+        {
+            xml.raiseError(QObject::tr("invalid response message"));
+        }
+    }
 }
 
 void VideoCategoryModel::closeSocket()
