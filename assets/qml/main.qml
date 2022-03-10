@@ -17,7 +17,7 @@ Window {
         id: background
         fillMode: Image.TileHorizontally
         smooth: true
-        source: "../../images/1197280.jpg"
+        source: "../images/1197280.jpg"
     }
 
 
