@@ -143,12 +143,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FileReceiver.cpp" />
     <ClCompile Include="MessageHandler.cpp" />
     <ClCompile Include="server.cpp" />
     <ClCompile Include="ThinkThinkServer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.hpp" />
+    <ClInclude Include="FileReceiver.h" />
     <ClInclude Include="MessageHandler.h" />
     <ClInclude Include="ThinkThinkServer.h" />
   </ItemGroup>

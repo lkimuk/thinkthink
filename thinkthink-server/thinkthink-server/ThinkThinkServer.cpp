@@ -1,6 +1,7 @@
 #include "ThinkThinkServer.h"
 #include <iostream>
 #include <memory>
+#include "FileReceiver.h"
 
 
 
@@ -46,7 +47,7 @@ void VideoSession::AsyncReadMessage()
 
 	auto self(shared_from_this());
 	m_socket->async_read_some(buffer(m_data),
-		[this, self](boost::system::error_code ec, std::size_t) {
+		[this, self](boost::system::error_code ec, std::size_t bytes) {
 			if (!ec) {
 				DispatchMessage(m_data);
 			}

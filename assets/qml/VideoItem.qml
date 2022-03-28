@@ -6,9 +6,9 @@ Item {
     width: parent.width
     height: videoItemColumn.height
 
-    VideoItemFeeds {
-        id: videoItemFeeds
-    }
+//    VideoItemFeeds {
+//        id: videoItemFeeds
+//    }
 
 
     // 每个VideoItem列表
@@ -63,13 +63,6 @@ Item {
             }
         }
 
-//        Rectangle {
-//            id: testrect1
-//            width: parent.width
-//            height: 100
-//            color: "red"
-//        }
-
         //////////////////////////////
         GridView {
             id: videoGridView
@@ -77,8 +70,9 @@ Item {
             height: cellHeight * (Math.ceil(videoGridView.count / Math.floor(parent.width / cellWidth)))
             cellWidth: 270
             cellHeight: 165
+            clip: true
 
-            model: videoItemFeeds
+            model: videoController.model()/*videoItemFeeds*/
             delegate: videoViewDelegate
             highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
         }
@@ -106,7 +100,7 @@ Item {
 
                     Text {
                         id: videoTitle
-                        text: title
+                        text: model.title
                         width: parent.width - 5
                         height: 40
                         font.pointSize: 11
@@ -120,7 +114,7 @@ Item {
 
                     Text {
                         id: authorName
-                        text: author + " · " + date
+                        text: model.uploader + " · " + model.upload_date
                         width: parent.width - 5
                         height: 15
                         color: "#e9f1f6"

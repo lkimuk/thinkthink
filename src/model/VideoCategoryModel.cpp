@@ -1,8 +1,9 @@
+#include "FileSender.h"
 #include "RequestMessage.h"
 #include "VideoCategoryModel.h"
+#include "VideoController.h"
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
-
 
 
 
@@ -14,6 +15,8 @@ VideoCategoryModel::VideoCategoryModel(QObject *parent)
     connect(m_socket, &QTcpSocket::disconnected, this, &VideoCategoryModel::closeSocket);
     connect(m_socket, &QTcpSocket::readyRead, this, &VideoCategoryModel::responseData);
     m_socket->connectToHost("127.0.0.1", 3007);
+
+    connect(this, &VideoCategoryModel::categoryChanged, this, &VideoCategoryModel::updateVideos);
 }
 
 void VideoCategoryModel::addCategory(const QString &categoryName)
@@ -37,6 +40,16 @@ QVariant VideoCategoryModel::data(const QModelIndex &index, int role) const
     if(role == NameRole)
         return m_categories[index.row()];
     return QVariant();
+}
+
+QString VideoCategoryModel::at(int index) const
+{
+    return m_categories.at(index);
+}
+
+void VideoCategoryModel::setVideoController(VideoController *controller)
+{
+    m_videoController = controller;
 }
 
 QHash<int, QByteArray> VideoCategoryModel::roleNames() const
@@ -86,9 +99,19 @@ void VideoCategoryModel::responseData()
             xml.raiseError(QObject::tr("invalid response message"));
         }
     }
+
+    // 更新视频
+    if(m_categories.count() >= 0)
+        emit categoryChanged();
 }
 
 void VideoCategoryModel::closeSocket()
 {
     m_socket->close();
+}
+
+void VideoCategoryModel::updateVideos()
+{
+    QString category = m_categories.at(0);
+    m_videoController->updateVideos(category);
 }

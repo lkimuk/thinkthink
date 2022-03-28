@@ -18,3 +18,18 @@ VideoCategoryModel* VideoCategoryController::model() const
 {
     return videoCategoryModel;
 }
+
+bool VideoCategoryController::empty() const
+{
+    return videoCategoryModel->rowCount() == 0 ? true : false;
+}
+
+QString VideoCategoryController::at(int index) const
+{
+    return videoCategoryModel->at(index);
+}
+
+void VideoCategoryController::setVideoController(VideoController *controller) const
+{
+    videoCategoryModel->setVideoController(controller);
+}

@@ -4,6 +4,7 @@
 #include <QObject>
 
 class VideoCategoryModel;
+class VideoController;
 
 
 class VideoCategoryController : public QObject
@@ -14,6 +15,12 @@ public:
     explicit VideoCategoryController(QObject *parent = nullptr);
     void addCategory(const QString& categoryName);
     Q_INVOKABLE VideoCategoryModel* model() const;
+
+    bool empty() const;
+
+    QString at(int index) const;
+
+    void setVideoController(VideoController* controller) const;
 
 //signals:
 //    void modelChanged();

@@ -6,7 +6,22 @@ FocusScope {
     id: root
 
     //CategoryFeeds { id: categoryFeeds }
+    property string popup_text
 
+    Popup {
+        id: popup
+        x: 100
+        y: 100
+        width: 200
+        height: 200
+        modal: true
+        focus: true
+        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+
+        contentItem: Text {
+            text: popup_text
+        }
+    }
 
     ListView {
         id: categories
@@ -48,6 +63,8 @@ FocusScope {
             onClicked: {
                 categories.forceActiveFocus()
                 categories.currentIndex = model.index
+                popup_text = model.name
+                popup.open()
             }
         }
 

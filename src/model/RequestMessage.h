@@ -13,6 +13,8 @@ class RequestMessage
 public:
     enum RequestBody {
         RequestType,
+        FileSize,
+        VideoCategory
     };
     Q_ENUM(RequestBody)
     RequestMessage();

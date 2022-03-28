@@ -7,9 +7,12 @@ CONFIG += resources_big
 
 SOURCES += \
         src/controller/VideoCategoryController.cpp \
+        src/controller/VideoController.cpp \
         src/main.cpp \
+        src/model/FileSender.cpp \
         src/model/RequestMessage.cpp \
-        src/model/VideoCategoryModel.cpp
+        src/model/VideoCategoryModel.cpp \
+        src/model/VideoModel.cpp
 
 RESOURCES += qml.qrc
 
@@ -28,8 +31,11 @@ DISTFILES +=
 
 HEADERS += \
     src/controller/VideoCategoryController.h \
+    src/controller/VideoController.h \
+    src/model/FileSender.h \
     src/model/RequestMessage.h \
     src/model/VideoCategoryModel.h \
+    src/model/VideoModel.h \
     src/utils/Utils.hpp
 
 INCLUDEPATH += $$PWD/src/model \
