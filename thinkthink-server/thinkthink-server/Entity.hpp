@@ -11,3 +11,16 @@ struct VideoCategory {
 };
 
 REFLECTION(VideoCategory, category_name)
+
+struct Video {
+	std::string video_id;
+	std::string video_name;
+	std::string uploader;
+	std::string cover_image;
+	std::string source;
+	std::string category;
+	std::string upload_date;
+	std::string describe;
+};
+
+REFLECTION(Video, video_id, video_name, uploader, cover_image, source, category, upload_date, describe)

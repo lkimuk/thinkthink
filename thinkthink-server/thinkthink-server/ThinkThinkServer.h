@@ -29,6 +29,8 @@ private:
 
 private:
 	void OnGetVideoCategories(const RequestMessage& request);
+	void OnGetVideos(const RequestMessage& request);
+	void OnGetUploaderName(const RequestMessage& request);
 
 private:
 	constexpr static size_t max_length = 1024;

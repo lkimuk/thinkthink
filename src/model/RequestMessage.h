@@ -14,7 +14,8 @@ public:
     enum RequestBody {
         RequestType,
         FileSize,
-        VideoCategory
+        VideoCategory,
+        UploaderId
     };
     Q_ENUM(RequestBody)
     RequestMessage();

@@ -31,24 +31,6 @@ int main(int argc, char *argv[])
 
     VideoCategoryController* videoCateogryController = new VideoCategoryController(&engine);
     VideoController* videoController = new VideoController(&engine);
-    videoController->addVideo(Video("Title1", "Neo", "2-25"));
-    videoController->addVideo(Video("Title2", "Tom", "3-24"));
-    videoController->addVideo(Video("Title3", "哈哈", "3-25"));
-    videoController->addVideo(Video("Title4", "Kitty", "3-25"));
-    videoController->addVideo(Video("Title5", "Neo", "4-25"));
-    videoController->addVideo(Video("Title5", "Neo", "4-25"));
-    videoController->addVideo(Video("Title5", "Neo", "4-25"));
-    videoController->addVideo(Video("Title5", "Neo", "4-25"));
-    videoController->addVideo(Video("Title5", "Neo", "4-25"));
-    videoController->addVideo(Video("Title5", "Neo", "4-25"));
-    videoController->addVideo(Video("Title5", "Neo", "4-25"));
-    videoController->addVideo(Video("Title5", "Neo", "4-25"));
-    videoController->addVideo(Video("Title5", "Neo", "4-25"));
-    videoController->addVideo(Video("Title5", "Neo", "4-25"));
-    videoController->addVideo(Video("Title5", "Neo", "4-25"));
-    videoController->addVideo(Video("Title5", "Neo", "4-25"));
-    videoController->addVideo(Video("Title5", "Neo", "4-25"));
-    videoController->addVideo(Video("Title5", "Neo", "4-25"));
 
     QQmlContext *context = engine.rootContext();
     context->setContextProperty("videoCategoryController", videoCateogryController);

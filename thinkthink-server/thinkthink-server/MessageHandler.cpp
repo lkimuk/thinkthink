@@ -9,7 +9,7 @@ RequestMessage::RequestMessage(const std::string& data)
 	m_doc->load_string(data.c_str());
 }
 
-std::string RequestMessage::GetValue(const char* key)
+std::string RequestMessage::GetValue(const char* key) const
 {
 	pugi::xml_node node = m_doc->child("ThinkThink");
 	return node.child(key).text().as_string();

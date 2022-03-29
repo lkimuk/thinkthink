@@ -100,7 +100,7 @@ Item {
 
                     Text {
                         id: videoTitle
-                        text: model.title
+                        text: model.video_name
                         width: parent.width - 5
                         height: 40
                         font.pointSize: 11

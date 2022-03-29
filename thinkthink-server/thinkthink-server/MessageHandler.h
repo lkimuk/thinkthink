@@ -20,7 +20,7 @@ struct RequestMessage {
 	RequestMessage(const std::string& data);
 
 	// 获取消息值
-	std::string GetValue(const char* key);
+	std::string GetValue(const char* key) const;
 
 	// 获取消息类型
 	std::string GetType() const;
